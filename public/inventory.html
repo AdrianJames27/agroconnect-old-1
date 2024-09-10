@@ -1,0 +1,142 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Inventory Tracking Trend Analysis</title>
+    <!-- Bootstrap CSS -->
+    <link href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" rel="stylesheet">
+    <!-- Chart.js -->
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+    <style>
+        .container {
+            margin-top: 20px;
+        }
+        .chart-container {
+            position: relative;
+            height: 400px;
+            width: 100%;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h1 class="text-center">Inventory Tracking Trend Analysis</h1>
+        <div class="row">
+            <div class="col-md-6">
+                <h3>Usage Level Percentage</h3>
+                <div class="chart-container">
+                    <canvas id="usagePercentageChart"></canvas>
+                </div>
+            </div>
+            <div class="col-md-6">
+                <h3>Usage Frequency</h3>
+                <div class="chart-container">
+                    <canvas id="usageFrequencyChart"></canvas>
+                </div>
+            </div>
+        </div>
+    </div>
+    
+    <!-- Bootstrap JS and dependencies -->
+    <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.5.3/dist/umd/popper.min.js"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+    
+    <!-- Custom JavaScript -->
+    <script>
+        // Sample data for Usage Level Percentage
+        const usagePercentageData = {
+            labels: ['Item A', 'Item B', 'Item C', 'Item D'], // Replace with actual item names
+            datasets: [{
+                label: 'Usage Percentage',
+                data: [20, 35, 25, 20], // Replace with actual percentage data
+                backgroundColor: [
+                    'rgba(255, 99, 132, 0.2)',
+                    'rgba(54, 162, 235, 0.2)',
+                    'rgba(255, 206, 86, 0.2)',
+                    'rgba(75, 192, 192, 0.2)'
+                ],
+                borderColor: [
+                    'rgba(255, 99, 132, 1)',
+                    'rgba(54, 162, 235, 1)',
+                    'rgba(255, 206, 86, 1)',
+                    'rgba(75, 192, 192, 1)'
+                ],
+                borderWidth: 1
+            }]
+        };
+
+        // Configuration for Usage Level Percentage Chart
+        const usagePercentageConfig = {
+            type: 'pie',
+            data: usagePercentageData,
+            options: {
+                responsive: true,
+                plugins: {
+                    legend: {
+                        position: 'top',
+                    },
+                    tooltip: {
+                        callbacks: {
+                            label: function(tooltipItem) {
+                                return `Usage: ${tooltipItem.raw}%`;
+                            }
+                        }
+                    }
+                }
+            }
+        };
+
+        // Sample data for Usage Frequency
+        const usageFrequencyData = {
+            labels: ['Jan', 'Feb', 'Mar', 'Apr', 'May', 'Jun', 'Jul', 'Aug', 'Sep', 'Oct', 'Nov', 'Dec'],
+            datasets: [{
+                label: 'Usage Frequency',
+                data: [5, 7, 8, 6, 9, 10, 8, 7, 6, 5, 4, 3], // Replace with actual frequency data
+                borderColor: 'rgba(75, 192, 192, 1)',
+                backgroundColor: 'rgba(75, 192, 192, 0.2)',
+                borderWidth: 1
+            }]
+        };
+
+        // Configuration for Usage Frequency Chart
+        const usageFrequencyConfig = {
+            type: 'line',
+            data: usageFrequencyData,
+            options: {
+                responsive: true,
+                plugins: {
+                    legend: {
+                        position: 'top',
+                    },
+                    tooltip: {
+                        callbacks: {
+                            label: function(tooltipItem) {
+                                return `Frequency: ${tooltipItem.raw}`;
+                            }
+                        }
+                    }
+                },
+                scales: {
+                    x: {
+                        beginAtZero: true
+                    },
+                    y: {
+                        beginAtZero: true
+                    }
+                }
+            }
+        };
+
+        // Render charts
+        window.onload = function() {
+            const ctxPercentage = document.getElementById('usagePercentageChart').getContext('2d');
+            new Chart(ctxPercentage, usagePercentageConfig);
+
+            const ctxFrequency = document.getElementById('usageFrequencyChart').getContext('2d');
+            new Chart(ctxFrequency, usageFrequencyConfig);
+        };
+    </script>
+</body>
+</html>
