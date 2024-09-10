@@ -207,6 +207,8 @@ function averageVolumeProduction(data) {
         return [];
     }
 
+    console.log(data);
+
     const monthCropTotals = data.reduce((acc, item) => {
         const { monthPlanted, cropName, season, volumeProduction, areaPlanted } = item;
 

@@ -109,7 +109,7 @@ export default function initDashboard() {
           </div>
         </div>
         <div class="col-md-3">
-          <div class="card card-box" data-link="#maintenance" data-value="supplyMarket">
+          <div class="card card-box" data-link="#maintenance" data-value="production">
             <div class="card-body">
               <h5 class="card-title">Records</h5>
               <p id="records-count">0</p>

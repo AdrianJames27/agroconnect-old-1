@@ -413,6 +413,8 @@ async function handleCategoryChange() {
         $('#unavailable').show();
         $('#downloadBtn').hide();
     }
+
+    console.log(dataset);
 }
 
 
@@ -433,7 +435,7 @@ $(document).ready(async function() {
     
     });
 
-    $('#category, #crop, #season').on('change', function() {
+    $('#category, #crop').on('change', function() {
         handleCategoryChange();
     });
 });
