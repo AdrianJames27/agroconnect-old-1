@@ -12,19 +12,7 @@ dialog {
     box-shadow: 0 0 10px rgba(0, 0, 0, 0.3);
     animation: fade-in-from-top .5s ease-out;
     animation-fill-mode: forwards;
-}
-
-/* Dialog's initial state */
-dialog {
-    opacity: 1;
-    transition: opacity 2s ease;
-}
-  
-/* When the dialog is closing, apply the fade-out effect */
-dialog[close] {
-    opacity: 0;
-}
-  
+} 
 
 #messageDialog h4,
 #inputDialog h4 {
