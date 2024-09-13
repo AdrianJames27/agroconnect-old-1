@@ -13,12 +13,12 @@ return new class extends Migration
     {
         Schema::create('diseases', function (Blueprint $table) {
             $table->id('diseaseId');
-            $table->unsignedBigInteger('recordId');
-            $table->foreign('recordId')->references('recordId')->on('records');
+            $table->unsignedBigInteger('productionId');
+            $table->foreign('productionId')->references('productionId')->on('productions');
             $table->string('barangay', 255);
+            $table->string('farmerName', 255);
             $table->string('cropName', 255);
             $table->string('diseaseName', 255);
-            $table->integer('totalPlanted');
             $table->integer('totalAffected');
             $table->string('season', 255);
             $table->string('monthYear', 255);

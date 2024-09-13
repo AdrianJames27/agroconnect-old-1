@@ -13,8 +13,8 @@ return new class extends Migration
     {
         Schema::create('prices', function (Blueprint $table) {
             $table->id('priceId');
-            $table->unsignedBigInteger('recordId');
-            $table->foreign('recordId')->references('recordId')->on('records');
+            $table->unsignedBigInteger('productionId');
+            $table->foreign('productionId')->references('productionId')->on('productions');
             $table->string('cropName', 255);
             $table->string('price');
             $table->string('season', 255);

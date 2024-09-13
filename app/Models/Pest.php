@@ -11,11 +11,11 @@ class Pest extends Model
 
     protected $primaryKey = 'pestId'; // Specify the primary key field name
     protected $fillable = [
-        'recordId',
+        'productionId',
         'barangay',
+        'farmerName',
         'cropName',
         'pestName',
-        'totalPlanted',
         'totalAffected',
         'season',
         'monthYear',
@@ -24,6 +24,6 @@ class Pest extends Model
     // Define relationship with Record
     public function record()
     {
-        return $this->belongsTo(Record::class, 'recordId', 'recordId');
+        return $this->belongsTo(Production::class, 'productionId', 'productionId');
     }
 }

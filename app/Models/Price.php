@@ -11,7 +11,7 @@ class Price extends Model
 
     protected $primaryKey = 'priceId'; // Specify the primary key field name
     protected $fillable = [
-        'recordId',
+        'productionId',
         'cropName',
         'price',
         'season',
@@ -21,6 +21,6 @@ class Price extends Model
     // Define relationship with Record
     public function record()
     {
-        return $this->belongsTo(Record::class, 'recordId', 'recordId');
+        return $this->belongsTo(Production::class, 'productionId', 'productionId');
     }
 }

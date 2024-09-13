@@ -13,6 +13,7 @@ class Production extends Model
     protected $fillable = [
         'recordId',
         'barangay',
+        'farmerName',
         'cropName',
         'variety',
         'areaPlanted',
@@ -30,11 +31,5 @@ class Production extends Model
     public function record()
     {
         return $this->belongsTo(Record::class, 'recordId');
-    }
-
-    // Define the relationship with Crop model
-    public function crop()
-    {
-        return $this->belongsTo(Crop::class, 'cropName', 'cropName');
     }
 }

@@ -21,6 +21,7 @@ class ProductionController extends Controller
         $request->validate([
             'recordId' => 'required|exists:records,recordId',
             'barangay' => 'required|string|max:255',
+            'farmerName' => 'required|string|max:255',
             'cropName' => 'required|string|max:255',
             'variety' => 'required|string|max:255',
             'areaPlanted' => 'required|numeric',
@@ -38,6 +39,7 @@ class ProductionController extends Controller
         $production = new Production([
             'recordId' => $request->input('recordId'),
             'barangay' => $request->input('barangay'),
+            'farmerName' => $request->input('farmerName'),
             'cropName' => $request->input('cropName'),
             'variety' => $request->input('variety'),
             'areaPlanted' => $request->input('areaPlanted'),
@@ -68,6 +70,7 @@ class ProductionController extends Controller
                 'productionData.*.recordId' => 'required|exists:records,recordId',
                 'productionData.*.recordId' => 'required|exists:records,recordId',
                 'productionData.*.barangay' => 'required|string|max:255',
+                'productionData.*.farmerName' => 'required|string|max:255',
                 'productionData.*.cropName' => 'required|string|max:255',
                 'productionData.*.variety' => 'nullable|string|max:255',
                 'productionData.*.areaPlanted' => 'required|numeric',
@@ -84,6 +87,7 @@ class ProductionController extends Controller
                 [
                     'recordId' => $productionData['recordId'],
                     'barangay' => $productionData['barangay'],
+                    'farmerName' => $productionData['farmerName'],
                     'cropName' => $productionData['cropName'],
                     'variety' => $productionData['variety'] ?? '',
                     'areaPlanted' => $productionData['areaPlanted'],

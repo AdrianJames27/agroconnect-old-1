@@ -16,6 +16,7 @@ return new class extends Migration
             $table->unsignedBigInteger('recordId');
             $table->foreign('recordId')->references('recordId')->on('records');
             $table->string('barangay', 255);
+            $table->string('farmerName', 255);
             $table->string('cropName', 255);
             $table->string('variety', 255)->nullable();
             $table->double('areaPlanted');
