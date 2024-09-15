@@ -11,7 +11,7 @@ class DamageReport extends Model
 
     protected $primaryKey = 'damageId';
     protected $fillable = [
-        'prodcutionId',
+        'recordId',
         'barangay',
         'cropName',
         'variety',
@@ -25,6 +25,6 @@ class DamageReport extends Model
     // Define relationship with Record
     public function record()
     {
-        return $this->belongsTo(Production::class, 'prodcutionId', 'prodcutionId');
+        return $this->belongsTo(Record::class, 'recordId', 'recordId');
     }
 }

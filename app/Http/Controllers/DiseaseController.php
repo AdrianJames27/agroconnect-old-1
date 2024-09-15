@@ -21,6 +21,7 @@ class DiseaseController extends Controller
         $request->validate([
             'recordId' => 'required|exists:records,recordId',
             'barangay' => 'required|string|max:255',
+            'farmerName' => 'required|string|max:255',
             'cropName' => 'required|string|max:255',
             'diseaseName' => 'required|string|max:255',
             'totalPlanted' => 'required|numeric',
@@ -33,6 +34,7 @@ class DiseaseController extends Controller
         $disease = new Disease([
             'recordId' => $request->input('recordId'),
             'barangay' => $request->input('barangay'),
+            'farmerName' => $request->input('farmerName'),
             'cropName' => $request->input('cropName'),
             'diseaseName' => $request->input('diseaseName'),
             'totalPlanted' => $request->input('totalPlanted'),
@@ -62,6 +64,7 @@ class DiseaseController extends Controller
             $request->validate([
                 'diseaseData.*.recordId' => 'required|exists:records,recordId',
                 'diseaseData.*.barangay' => 'required|string|max:255',
+                'diseaseData.*.farmerName' => 'required|string|max:255',
                 'diseaseData.*.cropName' => 'required|string|max:255',
                 'diseaseData.*.diseaseName' => 'required|string|max:255',
                 'diseaseData.*.totalPlanted' => 'required|numeric',
@@ -74,6 +77,7 @@ class DiseaseController extends Controller
                 [
                     'recordId' => $diseaseData['recordId'],
                     'barangay' => $diseaseData['barangay'],
+                    'farmerName' => $diseaseData['farmerName'],
                     'cropName' => $diseaseData['cropName'],
                     'diseaseName' => $diseaseData['diseaseName'],
                     'totalPlanted' => $diseaseData['totalPlanted'],

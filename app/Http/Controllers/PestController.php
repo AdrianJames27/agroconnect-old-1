@@ -21,6 +21,7 @@ class PestController extends Controller
         $request->validate([
             'recordId' => 'required|exists:records,recordId',
             'barangay' => 'required|string|max:255',
+            'farmerName' => 'required|string|max:255',
             'cropName' => 'required|string|max:255',
             'pestName' => 'required|string|max:255',
             'totalPlanted' => 'required|numeric',
@@ -33,6 +34,7 @@ class PestController extends Controller
         $pest = new Pest([
             'recordId' => $request->input('recordId'),
             'barangay' => $request->input('barangay'),
+            'farmerName' => $request->input('farmerName'),
             'cropName' => $request->input('cropName'),
             'pestName' => $request->input('pestName'),
             'totalPlanted' => $request->input('totalPlanted'),
@@ -61,6 +63,7 @@ class PestController extends Controller
             $request->validate([
                 'pestData.*.recordId' => 'required|exists:records,recordId',
                 'pestData.*.barangay' => 'required|string|max:255',
+                'pestData.*.farmerName' => 'required|string|max:255',
                 'pestData.*.cropName' => 'required|string|max:255',
                 'pestData.*.pestName' => 'required|string|max:255',
                 'pestData.*.totalPlanted' => 'required|numeric',
@@ -73,6 +76,7 @@ class PestController extends Controller
                 [
                     'recordId' => $pestData['recordId'],
                     'barangay' => $pestData['barangay'],
+                    'barangay' => $pestData['farmerName'],
                     'cropName' => $pestData['cropName'],
                     'pestName' => $pestData['pestName'],
                     'totalPlanted' => $pestData['totalPlanted'],

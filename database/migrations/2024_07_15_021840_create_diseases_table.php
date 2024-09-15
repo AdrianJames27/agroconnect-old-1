@@ -19,6 +19,7 @@ return new class extends Migration
             $table->string('farmerName', 255);
             $table->string('cropName', 255);
             $table->string('diseaseName', 255);
+            $table->integer('totalPlanted');
             $table->integer('totalAffected');
             $table->string('season', 255);
             $table->string('monthYear', 255);
